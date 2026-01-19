@@ -6,7 +6,11 @@ const CityServicePage = () => {
   const { citySlug } = useParams();
   
   const cities = illinoisCities || [];
-  const city = cities.find(c => c.slug === citySlug);
+  
+  // Ye line URL se "roofing-" nikaal degi taake "gurnee" match ho jaye
+  const cleanSlug = citySlug ? citySlug.replace('roofing-', '') : '';
+  
+  const city = cities.find(c => c.slug === cleanSlug);
 
   if (!city) {
     return (
