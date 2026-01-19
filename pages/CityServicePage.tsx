@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { illinoisCities } from '../cities';
 
@@ -6,11 +6,19 @@ const CityServicePage = () => {
   const { citySlug } = useParams();
   
   const cities = illinoisCities || [];
-  
-  // Ye line URL se "roofing-" nikaal degi taake "gurnee" match ho jaye
   const cleanSlug = citySlug ? citySlug.replace('roofing-', '') : '';
-  
   const city = cities.find(c => c.slug === cleanSlug);
+
+  useEffect(() => {
+    if (city) {
+      document.title = `Best Roofing Services in ${city.name}, IL | Zuniga Roofing Inc`;
+      
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `Expert roof repair, replacement, and inspection services in ${city.name}, IL. Call Zuniga Roofing Inc for a free estimate today.`);
+      }
+    }
+  }, [city]);
 
   if (!city) {
     return (
