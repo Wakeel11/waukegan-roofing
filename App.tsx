@@ -14,10 +14,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="roofing-:citySlug" element={<CityServicePage />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="areas-we-serve" element={<AreasWeServe />} />
-          <Route path="contact" element={<ContactPage />} />
+          <Route path="/roofing-:citySlug" element={<CityServicePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/areas-we-serve" element={<AreasWeServe />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
     </HashRouter>
