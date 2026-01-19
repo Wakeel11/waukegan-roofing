@@ -13,18 +13,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         
-        {/* Is path mein se shuru ka / hata diya hai taake matching behtar ho */}
-        <Route path="roofing-:citySlug" element={<CityServicePage />} />
+        <Route path="/roofing-:citySlug" element={<CityServicePage />} />
         
-        <Route path="services" element={<ServicesPage />} />
-        <Route path="areas-we-serve" element={<AreasWeServe />} />
-        <Route path="contact" element={<ContactPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/areas-we-serve" element={<AreasWeServe />} />
+        <Route path="/contact" element={<ContactPage />} />
 
-        {/* Agar upar wala koi link match nahi hua, toh ye nazar aaye ga */}
         <Route path="*" element={
           <div style={{ padding: '50px', textAlign: 'center' }}>
             <h1>404 - Page Not Found</h1>
-            <p>Router is working, but this path is not matching any route.</p>
+            <p>The router is working, but the path is not matching. Check the URL again.</p>
           </div>
         } />
       </Routes>
