@@ -12,10 +12,21 @@ const App = () => {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/roofing-:citySlug" element={<CityServicePage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/areas-we-serve" element={<AreasWeServe />} />
-        <Route path="/contact" element={<ContactPage />} />
+        
+        {/* Is path mein se shuru ka / hata diya hai taake matching behtar ho */}
+        <Route path="roofing-:citySlug" element={<CityServicePage />} />
+        
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="areas-we-serve" element={<AreasWeServe />} />
+        <Route path="contact" element={<ContactPage />} />
+
+        {/* Agar upar wala koi link match nahi hua, toh ye nazar aaye ga */}
+        <Route path="*" element={
+          <div style={{ padding: '50px', textAlign: 'center' }}>
+            <h1>404 - Page Not Found</h1>
+            <p>Router is working, but this path is not matching any route.</p>
+          </div>
+        } />
       </Routes>
     </HashRouter>
   );
