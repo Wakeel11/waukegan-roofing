@@ -27,7 +27,6 @@ const CityServicePage = () => {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', color: '#1a202c', lineHeight: '1.6' }}>
-      {/* Hero Section */}
       <section style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '80px 20px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '42px', fontWeight: 'bold', margin: '0' }}>WAUKEGAN Roofing Services in {city.name}, IL</h1>
         <p style={{ fontSize: '20px', marginTop: '15px' }}>Trusted Local Roofing Experts Serving {city.name} and Nearby Areas</p>
@@ -36,7 +35,6 @@ const CityServicePage = () => {
         </button>
       </section>
 
-      {/* Local Content Section */}
       <section style={{ maxWidth: '1100px', margin: '60px auto', padding: '0 20px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
           <div style={{ flex: '1', minWidth: '300px' }}>
@@ -46,7 +44,7 @@ const CityServicePage = () => {
               WAUKEGAN Roofing Services has been providing top-tier solutions to homeowners in the {city.zip} area since 2016. 
               We understand the specific weather challenges in Illinois and Wisconsin.
             </p>
-            <ul style={{ list-style: 'square', paddingLeft: '20px' }}>
+            <ul style={{ listStyle: 'square', paddingLeft: '20px' }}>
               <li>Emergency Leak Repair</li>
               <li>Full Roof Replacement (Shingle & Flat)</li>
               <li>Siding & Gutter Installation</li>
@@ -63,7 +61,6 @@ const CityServicePage = () => {
         </div>
       </section>
 
-      {/* Local Landmarks & Community Section */}
       <section style={{ backgroundColor: '#f3f4f6', padding: '60px 20px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ color: '#1e3a8a' }}>Serving the Heart of {city.name}</h2>
@@ -88,7 +85,6 @@ const CityServicePage = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section style={{ textAlign: 'center', padding: '80px 20px' }}>
         <h2 style={{ fontSize: '36px' }}>Don't Wait for a Leak to Get Worse</h2>
         <p>Contact WAUKEGAN Roofing Services today for a professional inspection in {city.name}.</p>
