@@ -13,17 +13,17 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         
-        {/* Isay humne mazeed asaan kar diya hai taake match ho jaye */}
-        <Route path="/:citySlug" element={<CityServicePage />} />
+        {/* Ab ye gurnee ko sahi tarah dhoond paaye ga */}
+        <Route path="/roofing-:citySlug" element={<CityServicePage />} />
         
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/areas-we-serve" element={<AreasWeServe />} />
         <Route path="/contact" element={<ContactPage />} />
 
+        {/* Catch-all route for testing */}
         <Route path="*" element={
           <div style={{ padding: '50px', textAlign: 'center' }}>
             <h1>404 - Page Not Found</h1>
-            <p>The router is working, but the path is not matching.</p>
           </div>
         } />
       </Routes>
