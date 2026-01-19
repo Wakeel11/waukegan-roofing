@@ -12,20 +12,12 @@ const App = () => {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        
-        {/* Ab ye gurnee ko sahi tarah dhoond paaye ga */}
-        <Route path="/roofing-:citySlug" element={<CityServicePage />} />
-        
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/areas-we-serve" element={<AreasWeServe />} />
         <Route path="/contact" element={<ContactPage />} />
 
-        {/* Catch-all route for testing */}
-        <Route path="*" element={
-          <div style={{ padding: '50px', textAlign: 'center' }}>
-            <h1>404 - Page Not Found</h1>
-          </div>
-        } />
+        {/* Ye route ab har kism ke city URL ko catch kar legi */}
+        <Route path="/:citySlug" element={<CityServicePage />} />
       </Routes>
     </HashRouter>
   );
