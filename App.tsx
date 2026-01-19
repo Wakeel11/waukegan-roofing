@@ -13,7 +13,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         
-        <Route path="/roofing-:citySlug" element={<CityServicePage />} />
+        {/* Isay humne mazeed asaan kar diya hai taake match ho jaye */}
+        <Route path="/:citySlug" element={<CityServicePage />} />
         
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/areas-we-serve" element={<AreasWeServe />} />
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="*" element={
           <div style={{ padding: '50px', textAlign: 'center' }}>
             <h1>404 - Page Not Found</h1>
-            <p>The router is working, but the path is not matching. Check the URL again.</p>
+            <p>The router is working, but the path is not matching.</p>
           </div>
         } />
       </Routes>
