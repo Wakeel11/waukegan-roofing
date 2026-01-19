@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { illinoisCities } from '../constants/cities';
+import { illinoisCities } from '../cities'; // Pehle yahan '../constants/cities' tha
 
 const CityServicePage = () => {
   const { citySlug } = useParams();
@@ -28,5 +28,6 @@ const CityServicePage = () => {
     </div>
   );
 };
+
 
 export default CityServicePage;
