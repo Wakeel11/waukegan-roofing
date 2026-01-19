@@ -10,14 +10,7 @@ const CityServicePage = () => {
 
   useEffect(() => {
     if (city) {
-      document.title = `Best Roofing Services in ${city.name}, IL | WAUKEGAN Roofing Services`;
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta');
-        metaDesc.setAttribute('name', 'description');
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.setAttribute('content', `Professional roofing in ${city.name}, IL. WAUKEGAN Roofing Services offers repair, installation, and inspection near local landmarks. Serving ${city.zip} since 2016.`);
+      document.title = `WAUKEGAN Roofing Services in ${city.name}, IL | Best Local Roofers`;
     }
   }, [city]);
 
@@ -26,71 +19,63 @@ const CityServicePage = () => {
   }
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', color: '#1a202c', lineHeight: '1.6' }}>
-      <section style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '80px 20px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '42px', fontWeight: 'bold', margin: '0' }}>WAUKEGAN Roofing Services in {city.name}, IL</h1>
-        <p style={{ fontSize: '20px', marginTop: '15px' }}>Trusted Local Roofing Experts Serving {city.name} and Nearby Areas</p>
-        <button style={{ marginTop: '25px', backgroundColor: '#f97316', color: 'white', padding: '15px 35px', border: 'none', borderRadius: '5px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer' }}>
-          Get Your Free Quote: (877) 719-3793
-        </button>
+    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      {/* Hero Banner with spacing */}
+      <section style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '60px 20px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '40px', fontWeight: 'bold', margin: '0', textTransform: 'uppercase' }}>
+          WAUKEGAN Roofing Services in {city.name}, IL
+        </h1>
+        <p style={{ fontSize: '22px', marginTop: '15px', color: '#cbd5e1' }}>
+          Trusted Local Roofing Experts Serving {city.name} and {city.zip} Areas
+        </p>
+        <a href="tel:8777193793" style={{ display: 'inline-block', marginTop: '25px', backgroundColor: '#f97316', color: 'white', padding: '15px 40px', borderRadius: '5px', fontSize: '18px', fontWeight: 'bold', textDecoration: 'none' }}>
+          Call (877) 719-3793
+        </a>
       </section>
 
-      <section style={{ maxWidth: '1100px', margin: '60px auto', padding: '0 20px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
-          <div style={{ flex: '1', minWidth: '300px' }}>
-            <h2 style={{ color: '#1e3a8a', fontSize: '32px' }}>Expert Roof Repair & Replacement in {city.name}</h2>
-            <p>
-              Are you looking for a reliable roofer near <strong>local landmarks</strong> in {city.name}? 
-              WAUKEGAN Roofing Services has been providing top-tier solutions to homeowners in the {city.zip} area since 2016. 
-              We understand the specific weather challenges in Illinois and Wisconsin.
+      {/* Main Content */}
+      <section style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '50px', alignItems: 'center' }}>
+          <div>
+            <h2 style={{ color: '#1e3a8a', fontSize: '32px', marginBottom: '20px' }}>Quality Roofing Near {city.name} Landmarks</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.8', color: '#4a5568' }}>
+              When it comes to protecting your home in <strong>{city.name}</strong>, WAUKEGAN Roofing Services is the name you can trust. 
+              Since 2016, we have been serving neighborhoods near local community centers and landmarks, 
+              providing durable roof repairs and full replacements for the {city.zip} community.
             </p>
-            <ul style={{ listStyle: 'square', paddingLeft: '20px' }}>
-              <li>Emergency Leak Repair</li>
-              <li>Full Roof Replacement (Shingle & Flat)</li>
-              <li>Siding & Gutter Installation</li>
-              <li>Professional Roof Inspections</li>
+            <ul style={{ marginTop: '20px', listStyleType: 'check', color: '#2d3748', fontSize: '17px' }}>
+              <li>Full Roof Inspections & Maintenance</li>
+              <li>High-Quality Shingle Installation</li>
+              <li>Siding and Gutter Systems</li>
+              <li>24/7 Emergency Storm Damage Repair</li>
             </ul>
           </div>
-          <div style={{ flex: '1', minWidth: '300px' }}>
+          <div>
             <img 
-              src={`https://images.unsplash.com/photo-1633050488507-2e43c16b1f3a?auto=format&fit=crop&w=600&q=80`} 
-              alt={`Roofing Work in ${city.name}`} 
-              style={{ width: '100%', borderRadius: '15px', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }} 
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" 
+              alt={`Roofing in ${city.name}`} 
+              style={{ width: '100%', borderRadius: '8px', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }} 
             />
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: '#f3f4f6', padding: '60px 20px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ color: '#1e3a8a' }}>Serving the Heart of {city.name}</h2>
-          <p style={{ maxWidth: '800px', margin: '20px auto' }}>
-            From residential neighborhoods to areas near <strong>community parks and local business centers</strong>, 
-            our crew is always nearby. We take pride in keeping {city.name} homes safe and dry.
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginTop: '30px' }}>
-             <div style={{ background: 'white', padding: '20px', borderRadius: '10px' }}>
-               <h4>Local Parks</h4>
-               <p>We provide rapid response services to neighborhoods surrounding local recreational areas.</p>
-             </div>
-             <div style={{ background: 'white', padding: '20px', borderRadius: '10px' }}>
-               <h4>Historic Districts</h4>
-               <p>Preserving the aesthetic of historic {city.name} homes with modern roofing technology.</p>
-             </div>
-             <div style={{ background: 'white', padding: '20px', borderRadius: '10px' }}>
-               <h4>Service Area</h4>
-               <p>Proudly serving every street in {city.name}, Illinois, and the greater {city.zip} region.</p>
-             </div>
+      {/* Local Landmark / Trust Section */}
+      <section style={{ backgroundColor: '#f8fafc', padding: '60px 20px', borderTop: '1px solid #e2e8f0' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ color: '#1e3a8a' }}>Why Homeowners in {city.name} Choose Us?</h2>
+          <p style={{ fontSize: '18px', color: '#64748b', marginBottom: '40px' }}>We are not just contractors; we are your neighbors in Illinois.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+              <h4 style={{ color: '#f97316' }}>Local Knowledge</h4>
+              <p>We know the Illinois weather and how it affects roofs near local parks and lakes.</p>
+            </div>
+            <div style={{ background: 'white', padding: '30px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+              <h4 style={{ color: '#f97316' }}>Certified Crew</h4>
+              <p>Every project in {city.name} is handled by fully licensed and insured professionals.</p>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section style={{ textAlign: 'center', padding: '80px 20px' }}>
-        <h2 style={{ fontSize: '36px' }}>Don't Wait for a Leak to Get Worse</h2>
-        <p>Contact WAUKEGAN Roofing Services today for a professional inspection in {city.name}.</p>
-        <a href="tel:8777193793" style={{ display: 'inline-block', marginTop: '20px', backgroundColor: '#1e3a8a', color: 'white', padding: '15px 40px', borderRadius: '50px', textDecoration: 'none', fontWeight: 'bold' }}>
-          Call Now: (877) 719-3793
-        </a>
       </section>
     </div>
   );
