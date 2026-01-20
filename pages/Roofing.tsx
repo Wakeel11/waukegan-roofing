@@ -1,93 +1,89 @@
-import React from 'react';
-import { Phone, CheckCircle2, HardHat, Wrench, Search, Droplets, Hammer, Award, ShieldCheck } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Phone, CheckCircle2, HardHat, Wrench, Search, Droplets, Hammer, MapPin, Award } from 'lucide-react';
 
 const Roofing = () => {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-20 min-h-screen bg-white font-sans text-slate-900">
       {/* Hero Section */}
-      <section className="bg-[#1e3a8a] text-white py-20 px-4 text-center">
+      <section className="bg-[#1e3a8a] text-white py-16 md:py-24 px-4 text-center">
         <div className="container mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black uppercase mb-6 tracking-tight">Roofing Services</h1>
-          <p className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
-            WAUKEGAN Roofing Services: Your Premier Choice for Quality Craftsmanship Across IL, WI, and IN Since 2016.
+          <h1 className="text-4xl md:text-7xl font-black uppercase mb-6 tracking-tight">Roofing Services</h1>
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto font-medium">
+            Waukegan Roofing Services: Professional Grade Installations & Repairs Since 2016.
           </p>
-          <a href="tel:8777193793" className="inline-flex items-center gap-3 bg-[#f97316] hover:bg-orange-600 text-white text-2xl font-black px-10 py-5 rounded-xl shadow-xl transition-all">
-            <Phone size={32} fill="currentColor" /> (877) 719-3793
-          </a>
         </div>
       </section>
 
-      {/* Services Detailed Sections */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {/* Main Layout: Content (Left) + Form (Right Sidebar) */}
+      <section className="container mx-auto px-4 py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           
-          {/* 1. New Installation */}
-          <div className="p-8 border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg transition-all bg-white">
-            <div className="text-[#1e3a8a] mb-6"><HardHat size={48} /></div>
-            <h2 className="text-3xl font-bold mb-4 text-[#1e3a8a]">New Installation</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Expert installations for new residential and commercial builds. We use high-quality materials and ensure every roof is built to last and comply with all local building codes.
-            </p>
-            <ul className="space-y-2 text-slate-700 font-semibold">
-              <li><CheckCircle2 className="inline mr-2 text-[#f97316]" size={20} /> Architectural Shingles</li>
-              <li><CheckCircle2 className="inline mr-2 text-[#f97316]" size={20} /> Metal & Flat Roofs</li>
-            </ul>
+          {/* Left Column: Service Details */}
+          <div className="lg:col-span-2">
+            <h2 className="text-4xl font-black mb-12 border-l-8 border-[#f97316] pl-6 text-[#1e3a8a]">
+              Complete Roofing Solutions
+            </h2>
+
+            <div className="space-y-16">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><HardHat size={40} /></div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">New Installation</h3>
+                  <p className="text-gray-600 leading-relaxed">Modern roofing for new homes. We specialize in high-efficiency systems and premium architectural shingles that enhance curb appeal and protection.</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><Wrench size={40} /></div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Roof Repair</h3>
+                  <p className="text-gray-600 leading-relaxed">Expert leak detection and storm damage restoration. We provide fast, durable fixes to stop water damage in its tracks.</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><Search size={40} /></div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Professional Inspection</h3>
+                  <p className="text-gray-600 leading-relaxed">Our certified 21-point inspection identifies hidden issues before they become expensive disasters. Essential for new buyers and sellers.</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><Hammer size={40} /></div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Full Roof Replacement</h3>
+                  <p className="text-gray-600 leading-relaxed">Full tear-off and installation services. Eduardo Zuniga ensures every project is completed with zero mess and maximum quality.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Local HQ Trust Box */}
+            <div className="mt-16 bg-[#1e3a8a] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+               <h3 className="text-3xl font-bold mb-4 flex items-center gap-2"><MapPin className="text-[#f97316]" /> Local Headquarters</h3>
+               <p className="text-lg opacity-90 mb-6">Serving IL, WI, and IN. Visit us at 39089 N Green Bay Rd, Beach Park, IL 60087.</p>
+               <a href="tel:8777193793" className="text-3xl font-black text-[#f97316]">(877) 719-3793</a>
+            </div>
           </div>
 
-          {/* 2. Roof Repair */}
-          <div className="p-8 border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg transition-all bg-white">
-            <div className="text-[#1e3a8a] mb-6"><Wrench size={48} /></div>
-            <h2 className="text-3xl font-bold mb-4 text-[#1e3a8a]">Roof Repair</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              From minor leaks to major storm damage, WAUKEGAN Roofing Services provides fast and reliable repairs. We stop the damage before it spreads to the rest of your home.
-            </p>
-            <ul className="space-y-2 text-slate-700 font-semibold">
-              <li><CheckCircle2 className="inline mr-2 text-[#f97316]" size={20} /> Leak Detection & Fix</li>
-              <li><CheckCircle2 className="inline mr-2 text-[#f97316]" size={20} /> Storm Damage Restoration</li>
-            </ul>
+          {/* Right Column: Sticky Lead Form */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-28 space-y-6">
+              <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden min-h-[650px]">
+                <div className="bg-slate-800 p-6 text-center text-white">
+                   <h3 className="font-black text-xl uppercase">Get Your Quote</h3>
+                   <p className="text-xs opacity-70">Expert roofing service starts here</p>
+                </div>
+                <iframe 
+                  src="//leads.leadsmartinc.com/?api_key=77030701545247f5e77400a12de4d6965400710c&affiliate_source=modazawra1&funnel=3&category=15&step=1&buttons=btn-success" 
+                  width="100%" height="600" frameBorder="0" title="Roofing Quote"
+                ></iframe>
+              </div>
+            </div>
           </div>
 
-          {/* 3. Inspection */}
-          <div className="p-8 border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg transition-all bg-white">
-            <div className="text-[#1e3a8a] mb-6"><Search size={48} /></div>
-            <h2 className="text-3xl font-bold mb-4 text-[#1e3a8a]">Inspection</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Detailed 21-point roof inspections. Whether you're buying a home or maintaining your current one, our certified experts provide a transparent report on your roof’s health.
-            </p>
-          </div>
-
-          {/* 4. Roof Cleaning */}
-          <div className="p-8 border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg transition-all bg-white">
-            <div className="text-[#1e3a8a] mb-6"><Droplets size={48} /></div>
-            <h2 className="text-3xl font-bold mb-4 text-[#1e3a8a]">Roof Cleaning</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Safe moss and algae removal that restores your roof’s look and protects shingle integrity. Professional cleaning extends the lifespan of your roof significantly.
-            </p>
-          </div>
-
-          {/* 5. Replacement */}
-          <div className="p-8 border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg transition-all bg-white md:col-span-2">
-            <div className="text-[#1e3a8a] mb-6"><Hammer size={48} /></div>
-            <h2 className="text-3xl font-bold mb-4 text-[#1e3a8a]">Roof Replacement</h2>
-            <p className="text-gray-600 text-xl leading-relaxed mb-6 max-w-4xl">
-              When it's time for a fresh start, our replacement services provide a full tear-off and a brand-new, high-efficiency system with premium warranties. Eduardo Zuniga ensures a clean and fast process for every homeowner.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Sidebar-style Lead Form (Full Width) */}
-      <section className="bg-slate-50 py-20 px-4 border-t border-gray-100 text-center">
-        <h3 className="text-3xl font-bold text-[#1e3a8a] mb-8 uppercase">Get a Professional Quote</h3>
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-          <iframe 
-            src="//leads.leadsmartinc.com/?api_key=77030701545247f5e77400a12de4d6965400710c&affiliate_source=modazawra1&funnel=3&category=15&step=1&buttons=btn-success" 
-            width="100%" 
-            height="600" 
-            frameBorder="0"
-            title="LeadSmart Quote Form"
-          ></iframe>
         </div>
       </section>
     </div>
