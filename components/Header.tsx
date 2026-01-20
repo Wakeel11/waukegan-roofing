@@ -29,8 +29,9 @@ const Header: React.FC = () => {
       <div className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex justify-between items-center h-16 md:h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group" onClick={() => setIsMobileMenuOpen(false)}>
+            
+            {/* 1. Logo (flex-shrink-0 taake ye dabay nahi) */}
+            <Link to="/" className="flex items-center gap-2 group flex-shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
               <div className="bg-brand-blue p-2 rounded text-white group-hover:bg-brand-slate transition-colors">
                 <Hammer size={24} />
               </div>
@@ -42,21 +43,24 @@ const Header: React.FC = () => {
               </div>
             </Link>
 
-            {/* Desktop Nav - Hardcoded for Stability */}
-            <nav className="hidden lg:flex items-center gap-6">
+            {/* 2. Desktop Nav (flex-1 aur justify-center se ye center mein aa gaya) */}
+            <nav className="hidden lg:flex flex-1 justify-center items-center gap-8">
               <Link to="/" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Home</Link>
               <Link to="/roofing-services" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Roofing</Link>
               <Link to="/gutter-services" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Gutters</Link>
               <Link to="/areas-we-serve" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Areas We Serve</Link>
               <Link to="/contact" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Contact</Link>
-              
+            </nav>
+
+            {/* 3. CTA Button (Right Side - flex-shrink-0) */}
+            <div className="hidden lg:flex items-center flex-shrink-0">
               <Link 
                 to="/contact" 
                 className="ml-4 bg-brand-accent hover:bg-orange-600 text-white px-5 py-2.5 rounded font-bold transition-all shadow-sm transform hover:-translate-y-0.5"
               >
                 Get a Quote
               </Link>
-            </nav>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
