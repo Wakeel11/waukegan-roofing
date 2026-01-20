@@ -15,15 +15,17 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           
-          {/* Naye Alag Alag Service Pages */}
+          {/* Service Pages */}
           <Route path="roofing-services" element={<Roofing />} />
           <Route path="gutter-services" element={<Gutters />} />
           
-          {/* Purana link agar koi click kare toh Roofing par le jaye */}
+          {/* Redirect old services link */}
           <Route path="services" element={<Navigate to="/roofing-services" replace />} />
           
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
+          
+          {/* Dynamic City Route - MUST match the URL structure */}
           <Route path="roofing-:citySlug" element={<CityServicePage />} />
         </Route>
       </Routes>
