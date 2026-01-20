@@ -21,14 +21,15 @@ const App = () => {
           <Route path="roofing-inspection" element={<RoofService serviceType="inspection" />} />
           <Route path="roofing-cleaning" element={<RoofService serviceType="cleaning" />} />
           <Route path="roofing-replacement" element={<RoofService serviceType="replacement" />} />
-          <Route path="gutter-services" element={<Gutters />} />
           
+          <Route path="gutter-services" element={<Gutters />} />
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
           
-          {/* ZARURI FIX: Ise ":slug" kar diya hai taake ye "/roofing-waukegan" 
-             ko poora utha lay aur crash na ho.
-          */}
+          {/* SLASH FIX: Ise change kiya hai taake /roofing/city-name match ho */}
+          <Route path="roofing/:citySlug" element={<CityServicePage />} />
+          
+          {/* Catch-all for any other dynamic slug */}
           <Route path=":slug" element={<CityServicePage />} />
 
           <Route path="services" element={<Navigate to="/roofing-repair" replace />} />
