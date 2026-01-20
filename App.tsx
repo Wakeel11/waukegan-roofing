@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import CityServicePage from './pages/CityServicePage';
@@ -17,7 +16,8 @@ const App = () => {
           <Route path="services" element={<ServicesPage />} />
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
-          <Route path=":citySlug" element={<CityServicePage />} />
+          {/* Ye line city links ko specific banati hai */}
+          <Route path="roofing-:citySlug" element={<CityServicePage />} />
         </Route>
       </Routes>
     </HashRouter>
