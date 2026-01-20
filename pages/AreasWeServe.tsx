@@ -1,25 +1,37 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { illinoisCities } from '../cities';
+import { illinoisCities } from '../cities'; // Check karein ke path sahi hai
 
-const AreasWeServe = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-
+const AreasWeServe: React.FC = () => {
   return (
-    <div style={{ padding: '60px 20px', maxWidth: '1200px', margin: '0 auto', textAlign: 'center', minHeight: '80vh' }}>
-      <h1 style={{ color: '#1e3a8a', fontSize: '36px', fontWeight: '900' }}>OUR SERVICE AREAS</h1>
-      <p style={{ marginBottom: '40px' }}>Expert roofing across the Tri-State area since 2016.</p>
-      
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
-        {illinoisCities.map((city) => (
-          <Link 
-            key={city.slug} 
-            to={`/roofing-${city.slug}`} 
-            style={{ padding: '25px', border: '1px solid #e2e8f0', borderRadius: '12px', textDecoration: 'none', color: '#1e3a8a', fontWeight: 'bold', display: 'block', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}
-          >
-            Roofing in {city.name}, IL
-          </Link>
-        ))}
+    <div className="pt-32 pb-20 min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* SEO Heading Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-black text-brand-blue mb-4 uppercase">
+            Areas We Serve
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Providing professional roofing and gutter solutions across Illinois, Wisconsin, and Indiana. 
+            Find your city below to see our local services.
+          </p>
+        </div>
+
+        {/* The Grid - Is mein wo loop aayega */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {illinoisCities.map((city) => (
+            <Link 
+              key={city.slug} 
+              to={`/roofing/${city.slug}`} // Hyphen ki jagah slash (App.tsx route ke mutabiq)
+              className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-brand-accent transition-all group text-center"
+            >
+              <h3 className="text-brand-blue font-bold text-lg group-hover:text-brand-accent transition-colors">
+                Roofing in {city.name}, IL
+              </h3>
+              <p className="text-sm text-gray-500 mt-2">Professional Roofing Services</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
