@@ -20,8 +20,8 @@ const App = () => {
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
           
-          {/* Ye parameter ':citySlug' niche wali file se match karega */}
-          <Route path="roofing-:citySlug" element={<CityServicePage />} />
+          {/* FIX: Hyphen ki jagah slash use karein */}
+          <Route path="roofing/:citySlug" element={<CityServicePage />} />
         </Route>
       </Routes>
     </HashRouter>
