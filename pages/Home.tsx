@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { illinoisCities } from '../cities';
 
 const Home = () => {
+  useEffect(() => {
+    // LeadSmart Script Injection logic
+    const script = document.createElement('script');
+    script.src = "https://leads.leadsmartinc.com/js/embed/embed.js?apikey=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=modazawra1&buttons=btn-info";
+    script.type = 'text/javascript';
+    script.async = true;
+
+    const formContainer = document.getElementById('leadsmart-home-form');
+    if (formContainer) {
+      formContainer.appendChild(script);
+    }
+  }, []);
+
   return (
     <div style={{ fontFamily: 'Segoe UI, Arial, sans-serif', color: '#1a202c', lineHeight: '1.6' }}>
       
@@ -17,7 +30,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* NEW: Main Services Section */}
+      {/* NEW Section: LeadSmart Form */}
+      <section style={{ padding: '60px 20px', backgroundColor: '#ffffff' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px', borderRadius: '15px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0' }}>
+          <h2 style={{ textAlign: 'center', color: '#1e3a8a', marginBottom: '30px', fontSize: '32px' }}>Request Your Free Roofing Quote</h2>
+          <div id="leadsmart-home-form">
+            {/* LeadSmart form will be injected here */}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Services Section */}
       <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ textAlign: 'center', color: '#1e3a8a', fontSize: '36px', marginBottom: '40px' }}>Our Core Services</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
@@ -87,7 +110,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* NEW: Service Areas Section (Interlinking Grid) */}
+      {/* Service Areas Section */}
       <section style={{ backgroundColor: '#1e3a8a', padding: '80px 20px', color: 'white' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ textAlign: 'center', fontSize: '32px', marginBottom: '40px' }}>Service Areas We Cover</h2>
