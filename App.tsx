@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import CityServicePage from './pages/CityServicePage';
-import RoofService from './pages/RoofService'; // Ye line ab sahi file ko point kar rahi hai
+import RoofService from './pages/RoofService'; // PURANA IMPORT HATA KAR YE LIKHEIN
 import Gutters from './pages/Gutters'; 
 import ContactPage from './pages/ContactPage';
 import AreasWeServe from './pages/AreasWeServe';
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           
-          {/* Specific Service Pages using the new RoofService component */}
+          {/* Specific Service Pages */}
           <Route path="roofing-installation" element={<RoofService serviceType="installation" />} />
           <Route path="roofing-repair" element={<RoofService serviceType="repair" />} />
           <Route path="roofing-inspection" element={<RoofService serviceType="inspection" />} />
