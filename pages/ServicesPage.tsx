@@ -2,59 +2,58 @@ import React from 'react';
 
 const ServicesPage = () => {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', color: '#1a202c' }}>
+    <div style={{ color: '#1a202c', fontFamily: 'Arial, sans-serif' }}>
+      {/* Header Section */}
       <section style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '60px 20px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '42px', fontWeight: '900' }}>OUR EXPERT SERVICES</h1>
-        <p style={{ fontSize: '20px', marginTop: '10px' }}>Serving Illinois, Wisconsin, & Indiana since 2016</p>
+        <h1 style={{ fontSize: '42px', fontWeight: '900' }}>OUR PROFESSIONAL SERVICES</h1>
+        <p style={{ fontSize: '18px' }}>Serving Illinois, Wisconsin, and Indiana Since 2016</p>
       </section>
 
-      {/* Roofing Section */}
+      {/* ROOFING SECTION */}
       <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', alignItems: 'center' }}>
-          <div style={{ flex: '1', minWidth: '320px' }}>
-            <h2 style={{ color: '#1e3a8a', fontSize: '36px', fontWeight: '800' }}>Professional Roofing</h2>
-            <p style={{ fontSize: '18px', margin: '20px 0', lineHeight: '1.7' }}>
-              WAUKEGAN Roofing Services specializes in complete residential and industrial roof replacements. 
-              We use premium shingles and flat-roof systems that are fully code-compliant.
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '50px', alignItems: 'center' }}>
+          <div>
+            <h2 style={{ color: '#1e3a8a', fontSize: '32px', fontWeight: '800' }}>Expert Roofing Solutions</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.7', margin: '20px 0' }}>
+              WAUKEGAN Roofing Services specializes in high-quality roof installations and repairs. 
+              We handle residential, commercial, and industrial projects with code-compliant workmanship since 2016.
             </p>
-            <ul style={{ paddingLeft: '20px', fontSize: '18px', lineHeight: '2' }}>
-              <li>✅ New Roof Installation</li>
-              <li>✅ Leak Repair & Maintenance</li>
-              <li>✅ Storm Damage Restoration</li>
-              <li>✅ Commercial Roofing Solutions</li>
+            <ul style={{ lineHeight: '2', fontSize: '17px' }}>
+              <li>✅ Complete Shingle Roof Replacement</li>
+              <li>✅ Flat Roof & Industrial Systems</li>
+              <li>✅ Emergency Leak Repair & Maintenance</li>
             </ul>
           </div>
-          <div style={{ flex: '1', minWidth: '320px' }}>
+          <div>
             <img 
-              src="https://images.unsplash.com/photo-1485740112426-0c2549fa8c86?q=80&w=800&auto=format&fit=crop" 
-              alt="Roofing Services" 
+              src="https://images.unsplash.com/photo-1633050488507-2e43c16b1f3a?q=80&w=800&auto=format&fit=crop" 
+              alt="Professional Roofing Services" 
               style={{ width: '100%', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
             />
           </div>
         </div>
       </section>
 
-      {/* Gutters Section */}
+      {/* GUTTERS SECTION */}
       <section style={{ backgroundColor: '#f8fafc', padding: '80px 20px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap-reverse', gap: '60px', alignItems: 'center' }}>
-          <div style={{ flex: '1', minWidth: '320px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '50px', alignItems: 'center' }}>
+          <div>
             <img 
               src="https://images.unsplash.com/photo-1621905252507-b352220239ec?q=80&w=800&auto=format&fit=crop" 
-              alt="Gutter Services" 
+              alt="Seamless Gutter Installation" 
               style={{ width: '100%', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} 
             />
           </div>
-          <div style={{ flex: '1', minWidth: '320px' }}>
-            <h2 style={{ color: '#1e3a8a', fontSize: '36px', fontWeight: '800' }}>Gutter Systems</h2>
-            <p style={{ fontSize: '18px', margin: '20px 0', lineHeight: '1.7' }}>
-              Protect your foundation with our seamless gutter systems. Since 2016, we have provided Lake County 
-              with durable drainage solutions that prevent costly water damage.
+          <div>
+            <h2 style={{ color: '#1e3a8a', fontSize: '32px', fontWeight: '800' }}>Seamless Gutter Systems</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.7', margin: '20px 0' }}>
+              Protect your property's foundation with our expert gutter installations. Since 2016, we've provided 
+              Lake County with durable drainage solutions designed for local weather.
             </p>
-            <ul style={{ paddingLeft: '20px', fontSize: '18px', lineHeight: '2' }}>
-              <li>✅ Seamless Gutter Installation</li>
-              <li>✅ Gutter Cleaning & Repair</li>
-              <li>✅ Downspout Guards</li>
-              <li>✅ Soffit & Fascia Work</li>
+            <ul style={{ lineHeight: '2', fontSize: '17px' }}>
+              <li>✅ Custom Seamless Gutter Fitting</li>
+              <li>✅ Professional Gutter Cleaning</li>
+              <li>✅ Downspout & Leaf Guard Protection</li>
             </ul>
           </div>
         </div>
