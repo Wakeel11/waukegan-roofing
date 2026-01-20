@@ -16,12 +16,14 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="roofing-services" element={<Roofing />} />
           <Route path="gutter-services" element={<Gutters />} />
-          <Route path="services" element={<Navigate to="/roofing-services" replace />} />
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="services" element={<Navigate to="/roofing-services" replace />} />
           
-          {/* FIX: Hyphen ki jagah slash use karein */}
-          <Route path="roofing/:citySlug" element={<CityServicePage />} />
+          {/* ZARURI FIX: Ise sab se niche rakhein. 
+            Ye "/roofing-waukegan" jaise har link ko pakar lega.
+          */}
+          <Route path=":citySlug" element={<CityServicePage />} />
         </Route>
       </Routes>
     </HashRouter>
