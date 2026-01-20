@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-import ContactForm from '../components/ContactForm'; // Check karein ke ye file mojud hai
-import { Phone, MapPin, ShieldCheck, CheckCircle } from 'lucide-react';
+import { Phone, MapPin, ShieldCheck, Clock, Award } from 'lucide-react';
 
 const localCities = [
   { name: "Waukegan", slug: "waukegan", zip: "60085" },
@@ -47,85 +46,117 @@ const CityServicePage = () => {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-brand-blue text-white py-20 px-4 text-center">
-        <div className="container mx-auto">
-          <h1 className="text-4xl md:text-6xl font-black uppercase mb-4 tracking-tight">
+    <div className="pt-20 min-h-screen bg-white">
+      {/* 1. HERO SECTION with Immediate Call CTA */}
+      <section className="bg-brand-blue text-white py-16 md:py-24 px-4">
+        <div className="container mx-auto text-center">
+          <span className="bg-brand-accent px-4 py-1 rounded-full text-sm font-bold uppercase mb-4 inline-block">
+            Top Rated Local Roofer
+          </span>
+          <h1 className="text-4xl md:text-7xl font-black uppercase mb-6 leading-tight">
             Roofing in {city.name}, IL
           </h1>
-          <p className="text-xl md:text-2xl font-medium opacity-90 max-w-3xl mx-auto">
-            Trusted Local Roofing & Gutter Experts Serving {city.name} Since 2016
+          <p className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto">
+            Professional Roofing & Gutter Experts Serving {city.name} Since 2016.
           </p>
+          
+          {/* Main Hero Call Button */}
+          <a href="tel:8777193793" className="inline-flex items-center gap-3 bg-brand-accent hover:bg-orange-600 text-white text-2xl md:text-3xl font-black px-10 py-5 rounded-xl shadow-2xl transform hover:scale-105 transition-all">
+            <Phone size={32} fill="currentColor" />
+            CALL NOW: (877) 719-3793
+          </a>
         </div>
       </section>
 
-      {/* Main Content & Sidebar */}
+      {/* 2. MAIN LAYOUT */}
       <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* Left Side: Content */}
+          {/* CONTENT COLUMN */}
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-brand-slate mb-6">Expert Roofing Solutions for {city.name} Homeowners</h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Need a professional roofer in <strong>{city.name}, IL ({city.zip})</strong>? 
-              Zuniga Roofing Inc (WAUKEGAN Roofing Services) is your local choice for quality and reliability. 
-              Eduardo Zuniga began this business in 2016 to ensure that every home in Lake County gets the protection it deserves.
+            <h2 className="text-4xl font-extrabold text-brand-slate mb-8">
+              Why Choose WAUKEGAN Roofing Services?
+            </h2>
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              Finding a reliable roofer in <strong>{city.name}, IL ({city.zip})</strong> shouldn't be stressful. 
+              At <strong>WAUKEGAN Roofing Services</strong>, Eduardo Zuniga and his team bring 10 years of 
+              local expertise to every project. Whether it's storm damage repair or a full roof replacement, we handle it with precision.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="text-brand-accent" />
-                <span className="font-bold">Residential Roofing</span>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl">
+                <ShieldCheck className="text-brand-accent w-12 h-12" />
+                <div>
+                  <h4 className="font-bold text-lg">Licensed & Insured</h4>
+                  <p className="text-gray-600 text-sm">Full protection for your {city.name} property.</p>
+                </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="text-brand-accent" />
-                <span className="font-bold">Seamless Gutters</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="text-brand-accent" />
-                <span className="font-bold">Storm Damage Repair</span>
-              </div>
-              <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="text-brand-accent" />
-                <span className="font-bold">Local Permit Experts</span>
+              <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl">
+                <Award className="text-brand-accent w-12 h-12" />
+                <div>
+                  <h4 className="font-bold text-lg">10+ Years Experience</h4>
+                  <p className="text-gray-600 text-sm">Serving IL, WI, and IN since 2016.</p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-blue-50 p-8 rounded-2xl border-l-8 border-brand-accent mt-10">
-              <h3 className="text-2xl font-bold text-brand-blue mb-4 flex items-center gap-2">
-                <MapPin /> Our Local Headquarters
-              </h3>
-              <p className="text-lg text-gray-700 mb-4">
-                Visit us or call for a local inspection. We serve Illinois, Wisconsin, and Indiana from our central Beach Park office.
-              </p>
-              <p className="font-bold text-gray-900">39089 N Green Bay Rd, Beach Park, IL 60087</p>
-              <a href="tel:8777193793" className="text-3xl font-black text-brand-blue block mt-4 hover:text-brand-accent transition-colors">
-                📞 (877) 719-3793
-              </a>
+            {/* Local Trust Box */}
+            <div className="bg-brand-blue text-white p-10 rounded-3xl shadow-xl relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold mb-4 flex items-center gap-3">
+                  <MapPin className="text-brand-accent" /> Local Headquarters
+                </h3>
+                <p className="text-lg opacity-90 mb-6">
+                  Our central office is located in Beach Park, allowing us to respond quickly to any roofing emergency in {city.name}.
+                </p>
+                <p className="text-2xl font-bold">39089 N Green Bay Rd, Beach Park, IL 60087</p>
+              </div>
+              <div className="absolute -right-10 -bottom-10 opacity-10">
+                 <ShieldCheck size={200} />
+              </div>
             </div>
           </div>
 
-          {/* Right Side: Quote Form */}
+          {/* SIDEBAR: LeadSmart Form & Call CTA */}
           <div className="lg:col-span-1">
-            <div className="bg-white p-8 rounded-2xl shadow-2xl sticky top-28 border-t-4 border-brand-accent">
-              <h3 className="text-2xl font-bold text-brand-slate mb-2">Get a Free Estimate</h3>
-              <p className="text-sm text-gray-500 mb-6">Serving the {city.name} community with pride.</p>
-              <ContactForm cityName={city.name} />
+            <div className="sticky top-28 space-y-6">
+              
+              {/* Secondary Call CTA */}
+              <div className="bg-brand-accent p-6 rounded-2xl text-white text-center shadow-lg">
+                <p className="font-bold uppercase tracking-widest text-sm mb-2">Need a Quick Quote?</p>
+                <a href="tel:8777193793" className="text-2xl font-black block hover:underline">
+                  📞 (877) 719-3793
+                </a>
+              </div>
+
+              {/* LeadSmart Form Container */}
+              <div className="bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="bg-gray-100 p-4 text-center">
+                   <h3 className="font-bold text-brand-slate uppercase tracking-tight">Free Estimate Request</h3>
+                </div>
+                
+                {/* LEADSMART PLACEHOLDER - Paste your code here */}
+                <div className="min-h-[400px] flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 m-4 rounded-xl">
+                  <p className="text-gray-400 text-sm p-6 text-center">
+                    [PASTE LEADSMART IFRAME OR SCRIPT HERE]
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* Footer Area Links */}
-      <section className="bg-gray-100 py-12 border-t border-gray-200">
+      {/* 3. SEO FOOTER */}
+      <section className="bg-gray-50 py-16 border-t border-gray-200">
         <div className="container mx-auto px-4 text-center">
-          <h4 className="text-gray-400 font-bold uppercase tracking-widest text-sm mb-8">Other Local Service Areas</h4>
+          <h4 className="text-gray-400 font-bold uppercase tracking-widest text-xs mb-8">Service Areas Near {city.name}</h4>
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-            {localCities.filter(c => c.slug !== cleanSlug).slice(0, 10).map(c => (
-              <Link key={c.slug} to={`/roofing-${c.slug}`} className="text-brand-blue font-bold hover:text-brand-accent hover:underline text-sm">
-                Roofing in {c.name}
+            {localCities.filter(c => c.slug !== cleanSlug).slice(0, 12).map(c => (
+              <Link key={c.slug} to={`/roofing-${c.slug}`} className="text-brand-blue font-bold hover:text-brand-accent transition-colors text-sm">
+                Roofing {c.name}
               </Link>
             ))}
           </div>
