@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import CityServicePage from './pages/CityServicePage';
-import RoofService from './pages/RoofService'; // PURANA IMPORT HATA KAR YE LIKHEIN
+import RoofService from './pages/RoofService'; 
 import Gutters from './pages/Gutters'; 
 import ContactPage from './pages/ContactPage';
 import AreasWeServe from './pages/AreasWeServe';
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           
-          {/* Specific Service Pages */}
+          {/* Static Service Pages */}
           <Route path="roofing-installation" element={<RoofService serviceType="installation" />} />
           <Route path="roofing-repair" element={<RoofService serviceType="repair" />} />
           <Route path="roofing-inspection" element={<RoofService serviceType="inspection" />} />
@@ -26,11 +26,11 @@ const App = () => {
           <Route path="areas-we-serve" element={<AreasWeServe />} />
           <Route path="contact" element={<ContactPage />} />
           
-          {/* Redirect old services link */}
-          <Route path="services" element={<Navigate to="/roofing-repair" replace />} />
-          
-          {/* Dynamic City Pages - MUST stay at the bottom */}
+          {/* Dynamic City Pages - Matches /#/roofing-waukegan */}
           <Route path="roofing-:citySlug" element={<CityServicePage />} />
+          
+          {/* Catch-all redirect */}
+          <Route path="services" element={<Navigate to="/roofing-repair" replace />} />
         </Route>
       </Routes>
     </HashRouter>
