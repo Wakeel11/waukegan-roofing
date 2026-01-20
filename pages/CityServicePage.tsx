@@ -4,8 +4,6 @@ import { illinoisCities } from '../cities';
 
 const CityServicePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
-  
-  // URL slug ko cities data se match karna
   const city = illinoisCities.find(c => c.slug === citySlug);
 
   useEffect(() => {
@@ -14,63 +12,47 @@ const CityServicePage = () => {
 
   if (!city) {
     return (
-      <div style={{ padding: '120px 20px', textAlign: 'center' }}>
-        <h1 style={{ color: '#1e3a8a' }}>Location Profile Not Found</h1>
-        <p>We are currently updating our roofing service information for this area.</p>
-        <Link to="/areas-we-serve" style={{ color: '#f97316', fontWeight: 'bold' }}>Return to All Areas</Link>
+      <div style={{ padding: '150px 20px', textAlign: 'center' }}>
+        <h2 style={{ color: '#1e3a8a' }}>Location Not Found</h2>
+        <Link to="/areas-we-serve" style={{ color: '#f97316', fontWeight: 'bold' }}>View All Areas</Link>
       </div>
     );
   }
 
   return (
-    <div style={{ fontFamily: 'Segoe UI, Roboto, Arial, sans-serif', color: '#1a202c', lineHeight: '1.6' }}>
-      
-      {/* City Hero Section */}
-      <section style={{ 
-        backgroundColor: '#1e3a8a', color: 'white', padding: '100px 20px', textAlign: 'center',
-        backgroundImage: 'linear-gradient(rgba(0, 31, 100, 0.82), rgba(0, 31, 100, 0.82)), url("https://images.unsplash.com/photo-1633050488507-2e43c16b1f3a?q=80&w=1600&auto=format&fit=crop")',
-        backgroundSize: 'cover', backgroundPosition: 'center'
-      }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: 'clamp(30px, 5vw, 48px)', fontWeight: '900', textTransform: 'uppercase' }}>
-            Expert Roofing in {city.name}, IL {city.zip || ''}
-          </h1>
-          <p style={{ fontSize: '22px', marginTop: '15px', color: '#cbd5e1' }}>
-            WAUKEGAN Roofing Services: Trusted Local Contractor Serving {city.name}
-          </p>
-          <div style={{ marginTop: '40px' }}>
-            <a href="tel:8777193793" style={{ 
-              backgroundColor: '#22c55e', color: 'white', padding: '18px 45px', borderRadius: '8px', 
-              textDecoration: 'none', fontWeight: '900', fontSize: '22px', boxShadow: '0 5px 20px rgba(34, 197, 94, 0.4)'
-            }}>
-              📞 CALL {city.name.toUpperCase()} OFFICE
-            </a>
-          </div>
-        </div>
+    <div style={{ color: '#1a202c', minHeight: '100vh' }}>
+      {/* Hero Section */}
+      <section style={{ backgroundColor: '#1e3a8a', color: 'white', padding: '100px 20px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '42px', fontWeight: '900', textTransform: 'uppercase' }}>
+          Roofing in {city.name}, IL
+        </h1>
+        <p style={{ fontSize: '20px', marginTop: '15px' }}>
+          WAUKEGAN Roofing Services: Trusted Local Professionals Since 2016
+        </p>
       </section>
 
-      {/* City Content Section */}
-      <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'start' }}>
+      {/* Main Content */}
+      <section style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px' }}>
           <div>
-            <h2 style={{ color: '#1e3a8a', fontSize: '34px', fontWeight: '800' }}>Local Roofing Authority in {city.name}</h2>
-            <p style={{ fontSize: '18px', color: '#4a5568', marginTop: '20px' }}>
-              Are you looking for a professional local roofer in <strong>{city.name}, Illinois</strong>? 
-              WAUKEGAN Roofing Services is a leading small business roofing contractor serving Lake County and the Tri-State area since 2016.
+            <h2 style={{ color: '#1e3a8a' }}>Reliable Roofing Solutions in {city.name}</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.7', marginTop: '20px' }}>
+              We provide professional residential and commercial roofing across <strong>{city.name}</strong>. 
+              With 10 years of experience, our team at WAUKEGAN Roofing Services ensures every project meets 
+              local Illinois building codes.
             </p>
-            <p style={{ fontSize: '18px', color: '#4a5568', marginTop: '15px' }}>
-              We successfully tackle residential, commercial, and industrial projects across Illinois, Wisconsin, and Indiana. 
-              Our expert roofing contractors deliver high-quality roof installation, replacement, and repair solutions in {city.name}.
-            </p>
+            <div style={{ marginTop: '30px', padding: '25px', backgroundColor: '#f8fafc', borderRadius: '15px', borderLeft: '6px solid #f97316' }}>
+              <p style={{ fontWeight: 'bold', margin: 0 }}>Serving the Tri-State Area:</p>
+              <p>Illinois, Wisconsin, & Indiana</p>
+              <a href="tel:8777193793" style={{ fontSize: '22px', fontWeight: '900', color: '#1e3a8a', textDecoration: 'none' }}>📞 877-719-3793</a>
+            </div>
           </div>
-          <div style={{ backgroundColor: '#f8fafc', padding: '40px', borderRadius: '15px', border: '1px solid #e2e8f0' }}>
-            <h3 style={{ color: '#1e3a8a', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Location Trust Signals</h3>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              <li style={{ marginBottom: '15px', fontSize: '17px' }}>✅ <strong>Local HQ:</strong> Beach Park, IL 60087</li>
-              <li style={{ marginBottom: '15px', fontSize: '17px' }}>✅ <strong>Established:</strong> Operating since 2016</li>
-              <li style={{ marginBottom: '15px', fontSize: '17px' }}>✅ <strong>Coverage:</strong> IL, WI, and IN area</li>
-              <li style={{ marginBottom: '15px', fontSize: '17px' }}>✅ <strong>Standard:</strong> Code-compliant workmanship</li>
-            </ul>
+          <div>
+            <img 
+              src="https://images.unsplash.com/photo-1633050488507-2e43c16b1f3a?q=80&w=800&auto=format&fit=crop" 
+              alt="Roofing Work" 
+              style={{ width: '100%', borderRadius: '15px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }} 
+            />
           </div>
         </div>
       </section>
