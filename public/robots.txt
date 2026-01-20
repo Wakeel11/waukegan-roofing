@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://waukegan-roofing.pages.dev/sitemap.xml
