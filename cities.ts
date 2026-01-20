@@ -27,6 +27,9 @@ export const illinoisCities: City[] = [
   { name: "Fox Lake", slug: "fox-lake", zip: "60020" },
   { name: "Wauconda", slug: "wauconda", zip: "60084" },
   { name: "Lindenhurst", slug: "lindenhurst", zip: "60046" },
-  { name: "Round Lake Beach", slug: "round-lake-beach", zip: "60073" }
-  // Mazeed cities isi tarah add karte jayein
+  { name: "Gages Lake", slug: "gages-lake", zip: "60030" },
+  { name: "Old Mill Creek", slug: "old-mill-creek", zip: "60083" },
+  { name: "Park City", slug: "park-city", zip: "60085" },
+  { name: "Round Lake Beach", slug: "round-lake-beach", zip: "60073" },
+  { name: "Hawthorn Woods", slug: "hawthorn-woods", zip: "60047" }
 ];
