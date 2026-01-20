@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-// ALL ICONS IMPORTED TO PREVENT CRASH
+// ALL USED ICONS MUST BE HERE
 import { Phone, MapPin, ShieldCheck, Star, CheckCircle2, Award, HardHat, Clock, Search, Droplets, Hammer, Wrench } from 'lucide-react';
 
 const localCities = [
@@ -34,91 +34,73 @@ const localCities = [
 ];
 
 const CityServicePage = () => {
-  const { citySlug } = useParams<{ citySlug: string }>();
-  // Safe data fetching
-  const city = localCities.find(c => c.slug === citySlug);
+  const { slug } = useParams<{ slug: string }>();
+  
+  // Logic: "roofing-waukegan" mein se "waukegan" nikalna
+  const cleanSlug = slug?.replace('roofing-', '');
+  const city = localCities.find(c => c.slug === cleanSlug || c.slug === slug);
 
-  useEffect(() => { window.scrollTo(0, 0); }, [citySlug]);
+  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
   if (!city) return <Navigate to="/areas-we-serve" replace />;
 
   return (
     <div className="pt-20 min-h-screen bg-white font-sans text-slate-900">
-      {/* 1. HERO SECTION */}
-      <section className="bg-[#1e3a8a] text-white py-20 px-4 text-center">
+      <section className="bg-[#1e3a8a] text-white py-16 px-4 text-center">
         <div className="container mx-auto">
           <div className="flex justify-center items-center gap-2 mb-4">
-            {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={20} fill="#f97316" className="text-[#f97316]" />)}
-            <span className="font-bold uppercase tracking-widest text-sm text-gray-200">5-Star Rated in {city.name}</span>
+            {[1, 2, 3, 4, 5].map((s) => <Star key={s} size={18} fill="#f97316" className="text-[#f97316]" />)}
+            <span className="font-bold uppercase tracking-widest text-xs text-gray-200">Top Rated Experts in {city.name}</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black uppercase mb-6 tracking-tight">Roofing {city.name}, IL</h1>
-          <p className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto font-medium leading-relaxed">
-            WAUKEGAN Roofing Services: Your Premier Choice for Quality Craftsmanship in {city.name} Since 2016.
+          <h1 className="text-4xl md:text-7xl font-black uppercase mb-6 tracking-tighter">Roofing {city.name}, IL</h1>
+          <p className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto font-medium">
+            WAUKEGAN Roofing Services: Serving the {city.name} community with pride since 2016.
           </p>
-          <a href="tel:8777193793" className="inline-flex items-center gap-4 bg-[#f97316] hover:bg-orange-600 text-white text-2xl md:text-3xl font-black px-10 py-5 rounded-xl shadow-2xl transition-all scale-100 hover:scale-105">
+          <a href="tel:8777193793" className="inline-flex items-center gap-4 bg-[#f97316] hover:bg-orange-600 text-white text-2xl md:text-3xl font-black px-10 py-5 rounded-xl shadow-xl transition-all">
             <Phone size={32} fill="currentColor" /> (877) 719-3793
           </a>
         </div>
       </section>
 
-      {/* 2. MAIN CONTENT & LEADSMART SIDEBAR */}
-      <section className="container mx-auto px-4 py-16 lg:py-24">
+      <section className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2">
-            <h2 className="text-4xl font-black mb-12 border-l-8 border-[#f97316] pl-6 text-[#1e3a8a]">Expert Solutions for {city.name} Homes</h2>
+            <h2 className="text-3xl font-black mb-8 border-l-8 border-[#f97316] pl-6 text-[#1e3a8a]">
+              Expert Solutions for {city.name}
+            </h2>
             
-            {/* EEAT & LOCAL SEO CONTENT */}
-            <div className="space-y-12">
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><HardHat size={40} /></div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3">Roof Replacement & Installation</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    WAUKEGAN Roofing Services (Zuniga Roofing Inc) provides expert new roof installations in <strong>{city.name}, IL ({city.zip})</strong>. Eduardo Zuniga and his crew use premium materials to ensure every home is protected against harsh Midwestern storms.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><Wrench size={40} /></div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3">Emergency Roof Repair</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    Leak detection, shingle replacement, and storm damage restoration. Since 2016, we have provided fast local response times for roofing emergencies across Illinois, Wisconsin, and Indiana.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="bg-blue-50 p-4 rounded-2xl text-[#1e3a8a]"><ShieldCheck size={40} /></div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3">Seamless Gutter Systems</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    Custom-fit aluminum gutters designed specifically for your {city.name} property to protect your foundation from water damage.
-                  </p>
-                </div>
-              </div>
+            <div className="space-y-12 mb-16">
+               <div className="flex gap-6">
+                 <div className="bg-blue-50 p-4 rounded-xl text-[#1e3a8a] h-fit"><Wrench size={32} /></div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">Local Roof Repair</h3>
+                    <p className="text-gray-600">Fast local response for storm damage and leaks in {city.name}.</p>
+                 </div>
+               </div>
+               <div className="flex gap-6">
+                 <div className="bg-blue-50 p-4 rounded-xl text-[#1e3a8a] h-fit"><HardHat size={32} /></div>
+                 <div>
+                    <h3 className="text-xl font-bold mb-2">New Roof Installation</h3>
+                    <p className="text-gray-600">Premium architectural shingle installations tailored for Illinois weather.</p>
+                 </div>
+               </div>
             </div>
 
-            {/* Local HQ Box */}
-            <div className="mt-16 bg-[#1e3a8a] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
-               <h3 className="text-3xl font-bold mb-4 flex items-center gap-2"><MapPin className="text-[#f97316]" /> Local Headquarters</h3>
-               <p className="text-lg opacity-90 mb-6 font-medium">Serving the entire region from our central Beach Park office.</p>
-               <p className="text-2xl font-bold">39089 N Green Bay Rd, Beach Park, IL 60087</p>
-               <a href="tel:8777193793" className="text-3xl font-black text-[#f97316] block mt-6 hover:text-white transition-colors underline underline-offset-8">(877) 719-3793</a>
+            <div className="bg-[#1e3a8a] text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+               <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-[#f97316]"><MapPin /> Beach Park HQ</h3>
+               <p className="mb-4 font-medium opacity-90">Serving Illinois, Wisconsin, and Indiana from our central local office.</p>
+               <p className="text-xl font-bold">39089 N Green Bay Rd, Beach Park, IL 60087</p>
+               <p className="mt-6 text-sm font-black uppercase tracking-widest text-[#f97316]">Established 2016</p>
             </div>
           </div>
 
-          {/* SIDEBAR: STICKY LEADSMART FORM */}
           <div className="lg:col-span-1">
-            <div className="sticky top-28 space-y-6">
-              <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden min-h-[650px]">
-                <div className="bg-slate-800 p-5 text-center text-white font-bold uppercase tracking-widest text-sm">Get a Free {city.name} Quote</div>
+            <div className="sticky top-28 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 min-h-[650px]">
+                <div className="bg-slate-800 p-5 text-center text-white font-bold uppercase tracking-widest text-xs">Free {city.name} Quote</div>
                 <iframe 
                   src="//leads.leadsmartinc.com/?api_key=77030701545247f5e77400a12de4d6965400710c&affiliate_source=modazawra1&funnel=3&category=15&step=1&buttons=btn-success" 
                   width="100%" height="600" frameBorder="0" title="Quote Form"
                 ></iframe>
-              </div>
             </div>
           </div>
         </div>
