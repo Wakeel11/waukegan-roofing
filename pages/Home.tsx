@@ -1,21 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { illinoisCities } from '../cities';
 
 const Home = () => {
-  useEffect(() => {
-    // LeadSmart Script Loading Logic
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = "https://leads.leadsmartinc.com/js/embed/embed.js?apikey=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=modazawra1&buttons=btn-info";
-    script.async = true;
-
-    const container = document.getElementById('form-container');
-    if (container && !container.querySelector('script')) {
-      container.appendChild(script);
-    }
-  }, []);
-
   const scrollToForm = (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById('quote-form-section');
@@ -38,12 +25,18 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. FORM SECTION (Simplified Layout) */}
+      {/* 2. WORKING IFRAME FORM SECTION */}
       <section id="quote-form-section" style={{ padding: '60px 20px', backgroundColor: '#ffffff', textAlign: 'center' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px', borderRadius: '15px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0' }}>
-          <h2 style={{ color: '#1e3a8a', marginBottom: '20px', fontSize: '32px' }}>Request Your Free Roofing Quote</h2>
-          <div id="form-container" style={{ minHeight: '400px' }}>
-            {/* Form will load here via script */}
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '30px', borderRadius: '15px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0' }}>
+          <h2 style={{ color: '#1e3a8a', marginBottom: '25px', fontSize: '32px' }}>Request Your Free Roofing Quote</h2>
+          <div style={{ width: '100%', height: '600px', overflow: 'hidden' }}>
+            <iframe 
+              src="https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=modazawra1&funnel=3&category=0&step=1&buttons=btn-info" 
+              width="100%" 
+              height="600" 
+              frameBorder="0"
+              title="WAUKEGAN Roofing Services Form"
+            ></iframe>
           </div>
         </div>
       </section>
@@ -73,25 +66,25 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. E-E-A-T SECTION */}
+      {/* 4. E-E-A-T TRUST SECTION */}
       <section style={{ backgroundColor: '#f8fafc', padding: '60px 20px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <h2 style={{ color: '#1e3a8a', fontSize: '36px' }}>Trusted Roofing Authority</h2>
-            <p style={{ fontSize: '18px', color: '#4a5568' }}>Professional excellence across the Tri-State area since 2016.</p>
+            <p style={{ fontSize: '18px', color: '#4a5568' }}>Serving Illinois, Wisconsin, and Indiana Since 2016.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             <div style={{ padding: '30px', background: 'white', border: '1px solid #e2e8f0', borderRadius: '10px', textAlign: 'center' }}>
-              <h3 style={{ color: '#f97316' }}>Established 2016</h3>
-              <p>Serving with integrity for nearly a decade.</p>
+              <h3 style={{ color: '#f97316' }}>Operating Since 2016</h3>
+              <p>Nearly a decade of expert roofing service across the Tri-State area.</p>
             </div>
             <div style={{ padding: '30px', background: 'white', border: '1px solid #e2e8f0', borderRadius: '10px', textAlign: 'center' }}>
-              <h3 style={{ color: '#f97316' }}>Local HQ</h3>
-              <p>39089 N Green Bay Rd, Beach Park, IL 60087.</p>
+              <h3 style={{ color: '#f97316' }}>Beach Park HQ</h3>
+              <p>Located at 39089 N Green Bay Rd, Beach Park, IL 60087.</p>
             </div>
             <div style={{ padding: '30px', background: 'white', border: '1px solid #e2e8f0', borderRadius: '10px', textAlign: 'center' }}>
               <h3 style={{ color: '#f97316' }}>Fully Insured</h3>
-              <p>Licensed contractors fully bonded for your property safety.</p>
+              <p>Licensed contractors fully bonded for your property's safety.</p>
             </div>
           </div>
         </div>
@@ -101,13 +94,13 @@ const Home = () => {
       <section style={{ padding: '80px 20px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '50px', alignItems: 'center' }}>
           <div>
-            <h2 style={{ color: '#1e3a8a', fontSize: '32px' }}>Serving Waukegan, IL</h2>
+            <h2 style={{ color: '#1e3a8a', fontSize: '32px' }}>Deep Local Roots in Waukegan, IL</h2>
             <p style={{ marginTop: '20px', fontSize: '17px' }}>
-              WAUKEGAN Roofing Services is proud to serve areas near the <strong>Waukegan Harbor</strong> 
-              and <strong>Genesee Theatre</strong>. We are your trusted local choice.
+              From neighborhoods near <strong>Waukegan Harbor</strong> to homes by the <strong>Genesee Theatre</strong>, 
+              WAUKEGAN Roofing Services is your number one local contractor choice.
             </p>
           </div>
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Waukegan Roofing" style={{ width: '100%', borderRadius: '15px' }} />
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Roofing in Waukegan" style={{ width: '100%', borderRadius: '15px' }} />
         </div>
       </section>
 
