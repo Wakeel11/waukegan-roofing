@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Hammer } from 'lucide-react';
-import { BUSINESS_INFO, NAV_LINKS } from '../constants';
+// BUSINESS_INFO ko rehne dete hain phone number ke liye
+import { BUSINESS_INFO } from '../constants';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Header: React.FC = () => {
       {/* Top CTA Bar */}
       <div className="bg-brand-blue text-white py-2 px-4 text-center text-sm md:text-base font-medium tracking-wide">
         <div className="container mx-auto flex justify-between items-center max-w-7xl">
-          <span className="hidden md:inline text-gray-200">Trusted Roofing Experts in Illinois</span>
+          <span className="hidden md:inline text-gray-200">Trusted Roofing Experts in Illinois, Wisconsin & Indiana</span>
           <a href={`tel:${BUSINESS_INFO.phone}`} className="flex items-center gap-2 mx-auto md:mx-0 hover:text-brand-accent transition-colors">
              <span className="bg-brand-accent px-2 py-0.5 rounded text-white text-xs font-bold uppercase">Emergency?</span>
              <span className="font-bold flex items-center gap-1">
@@ -41,17 +42,14 @@ const Header: React.FC = () => {
               </div>
             </Link>
 
-            {/* Desktop Nav */}
+            {/* Desktop Nav - Hardcoded for Stability */}
             <nav className="hidden lg:flex items-center gap-6">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.path}
-                  className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link to="/" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Home</Link>
+              <Link to="/roofing-services" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Roofing</Link>
+              <Link to="/gutter-services" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Gutters</Link>
+              <Link to="/areas-we-serve" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Areas We Serve</Link>
+              <Link to="/contact" className="text-sm font-semibold text-gray-700 hover:text-brand-blue transition-colors uppercase tracking-tight">Contact</Link>
+              
               <Link 
                 to="/contact" 
                 className="ml-4 bg-brand-accent hover:bg-orange-600 text-white px-5 py-2.5 rounded font-bold transition-all shadow-sm transform hover:-translate-y-0.5"
@@ -76,16 +74,12 @@ const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-[100%] max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col p-4 space-y-3">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100 last:border-0"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100">HOME</Link>
+            <Link to="/roofing-services" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100">ROOFING</Link>
+            <Link to="/gutter-services" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100">GUTTERS</Link>
+            <Link to="/areas-we-serve" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100">AREAS WE SERVE</Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 rounded hover:bg-gray-50 text-gray-800 font-semibold border-b border-gray-100">CONTACT</Link>
+            
             <Link 
               to="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
